@@ -27,7 +27,7 @@ class GenerateLog
      */
     public function handle(UserLogged $event)
     {
-        $message = $event->request->user()->name . "just {$event->type} from the application";
+        $message = now() . " " . $event->request->user()->name . "just {$event->type} from the application";
         Storage::put('logactivity.txt', $message);
     }
 }
